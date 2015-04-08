@@ -1,0 +1,20 @@
+adb命令查看当前Activity和Fragment
+
+//查看当前栈顶的Activity
+//linux:
+adb shell dumpsys activity | grep "mFocusedActivity"
+
+//windows:
+adb shell dumpsys activity | findstr "mFocusedActivity"
+
+example: 
+shell@cancro:/ $ dumpsys activity | grep "mFocusedActivity"
+dumpsys activity | grep "mFocusedActivity"
+  mFocusedActivity: ActivityRecord{434df498 u0 com.tencent.qqlive/.ona.activity.
+HomeActivity t190}
+
+
+
+//查看当前栈顶的Activity的Fragment，其中you.package.name请替换成你需要查看的包名，
+//比如com.tencent.wechat
+adb shell dumpsys activity your.package.name
